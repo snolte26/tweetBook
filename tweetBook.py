@@ -48,6 +48,7 @@ def socialMedia(userPass, username):
                     break
             elif choice == 3:
                 quit = True
+                break
         if quit:
             break
 
