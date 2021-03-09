@@ -103,7 +103,6 @@ def socialMedia(username):
             elif choice == 6:
                 quit = True
                 break
-            os.system('cls')
         if quit:
             break
 
