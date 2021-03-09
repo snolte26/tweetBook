@@ -5,16 +5,18 @@ import time
 import os
 
 
-def socialMedia(userPass, username):
+def socialMedia(username):
+    quit = False
+
     while True:
         os.system('cls')
-        quit = False
 
         cluster = MongoClient(
             "Your Connection String Here")
         db = cluster["socialMedia"]["messages"]
         all = db.find({})
         date = datetime.now().strftime("%x")
+        count = db.count_documents({})
 
         for messages in all:
             try:
@@ -22,6 +24,7 @@ def socialMedia(userPass, username):
                     print(colored(f"Today - {messages['time']}", 'red'))
                 else:
                     print(colored(f"{messages['date']} - {messages['time']}", 'red'))
+                print(colored(f"Post ID: {messages['count']}", 'yellow'))
                 print(colored("From: ", 'green'), messages['id'])
                 print(colored("Message: ", 'green'), messages['message'])
                 print("----------------------")
@@ -31,24 +34,76 @@ def socialMedia(userPass, username):
         person = str(username)
 
         while True:
-            print("Please Choose an option 1-2")
+            print("Please Choose an option 1-6")
             print("1. New Message")
             print("2. Refresh Messages")
-            print("3. Quit")
+            print("3. View Your Posts")
+            print("4. Search Users")
+            print("5. Delete Your Post")
+            print("6. Quit")
             choice = int(input("Choice: "))
-            if choice > 0 and choice < 3:
+
+            if choice > 0 and choice < 6:
+
+                # creates a message for the user to post
                 if choice == 1:
                     message = input("Messgae: ")
 
                     time = datetime.now().strftime("%X")
 
-                    msg = {"id": person, "message": message, "date": date, "time": time}
+                    msg = {"count": count + 1, "id": person, "message": message, "date": date, "time": time}
                     db.insert_one(msg)
-                else:
+
+                # breaks out of nested loop
+                elif choice == 2:
                     break
-            elif choice == 3:
+
+                # showing users posts
+                elif choice == 3:
+                    os.system('cls')
+                    userPosts = db.find({'id': person})
+                    for messages in userPosts:
+                        try:
+                            if date == messages["date"]:
+                                print(colored(f"Today - {messages['time']}", 'red'))
+                            else:
+                                print(colored(f"{messages['date']} - {messages['time']}", 'red'))
+                            print(colored(f"Post ID: {messages['count']}", 'yellow'))
+                            print(colored("From: ", 'green'), messages['id'])
+                            print(colored("Message: ", 'green'), messages['message'])
+                            print("----------------------")
+                        except:
+                            pass
+
+                elif choice == 4:
+                    os.system('cls')
+                    person = input("Enter Users Name: ")
+                    userPosts = db.find({'id': person})
+                    for messages in userPosts:
+                        try:
+                            if date == messages["date"]:
+                                print(colored(f"Today - {messages['time']}", 'red'))
+                            else:
+                                print(colored(f"{messages['date']} - {messages['time']}", 'red'))
+                            print(colored(f"Post ID: {messages['count']}", 'yellow'))
+                            print(colored("From: ", 'green'), messages['id'])
+                            print(colored("Message: ", 'green'), messages['message'])
+                            print("----------------------")
+                        except:
+                            pass
+                elif choice == 5:
+                    persona = str(username)
+                    postDelete = int(input("Post ID to Delete: "))
+                    query = db.find_one({"count": postDelete, "id": persona})
+                    try:
+                        db.delete_one(query)
+                    except:
+                        pass
+
+            elif choice == 6:
                 quit = True
                 break
+            os.system('cls')
         if quit:
             break
 
