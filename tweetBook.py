@@ -170,11 +170,21 @@ def main():
     if exists:
         userPass = open("userPass.txt", "r")
         username = login(userPass)
-        socialMedia(userPass, username)
+
+        directory = os.path.dirname(os.path.abspath(__file__))
+        command = directory + "\\tweetBook_AutoMod.py"
+        os.system(command)
+
+        socialMedia(username)
     else:
         username = setup()
         userPass = open("userPass.txt", "r")
-        socialMedia(userPass, username)
+
+        directory = os.path.dirname(os.path.abspath(__file__))
+        command = directory + "\\tweetBook_AutoMod.py"
+        os.system(command)
+
+        socialMedia(username)
 
 
 main()
