@@ -75,6 +75,7 @@ def socialMedia(username):
                         except:
                             pass
 
+                # search for users
                 elif choice == 4:
                     os.system('cls')
                     person = input("Enter Users Name: ")
@@ -91,6 +92,7 @@ def socialMedia(username):
                             print("----------------------")
                         except:
                             pass
+                # delete your own posts
                 elif choice == 5:
                     persona = str(username)
                     postDelete = int(input("Post ID to Delete: "))
@@ -100,10 +102,10 @@ def socialMedia(username):
                     except:
                         pass
 
+            # close the program
             elif choice == 6:
                 quit = True
                 break
-            os.system('cls')
         if quit:
             break
 
