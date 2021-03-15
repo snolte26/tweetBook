@@ -18,3 +18,15 @@ Added search users, view your posts, and delete your posts
 
 Users can now search for other users to see their posts, view just 
 their posts, and delete certain posts of theirs
+
+``````````````````````````````````````````````````````````````````````````
+``````````````````````````````````````````````````````````````````````````
+Update 03/15/2021:
+Added the AutoMod
+
+After the user logs in, The program will run the AutoMod script that goes 
+through the database and deletes posts older than 1 month. Previously the users
+had to manually delete posts or wait for the database administrator to 
+remove all the posts, and if the database filled up, you couldn't make any more
+posts. Now users can moderate themselves and free up room in thedatabase as 
+time moves forward.
