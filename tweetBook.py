@@ -16,7 +16,6 @@ def socialMedia(username):
         db = cluster["socialMedia"]["messages"]
         all = db.find({})
         date = datetime.now().strftime("%x")
-        count = db.count_documents({})
 
         for messages in all:
             try:
@@ -47,6 +46,7 @@ def socialMedia(username):
 
                 # creates a message for the user to post
                 if choice == 1:
+                    count = db.count_documents({})
                     message = input("Messgae: ")
 
                     time = datetime.now().strftime("%X")
