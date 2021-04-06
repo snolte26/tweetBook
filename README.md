@@ -9,10 +9,10 @@ video above to do so and get a better understanding of whats happening.
 Line 13, you will need to put your own connection string
 
 On line 5 of the autoMod, you will need to input your own connection string.
-The autoMod goes throught the database and deletes posts that are 
+The autoMod goes through the database and deletes posts that are 
 older than 1 month.
 
-Both the AutoMod and TweetBokk are required for this to workk properly.
+Both the AutoMod and TweetBokk are required for this to work properly.
 
 To distribute to those without python, you must convert both the tweetBook app 
 and the autoMod into .exe formats. This can be done by installing pyinstaller,
