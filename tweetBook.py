@@ -10,6 +10,14 @@ def socialMedia(username):
 
     while True:
         os.system('cls')
+        
+        print(".___________.____    __    ____  _______  _______ .___________..______     ______     ______    __  ___ ")
+        print("|           |\   \  /  \  /   / |   ____||   ____||           ||   _  \   /  __  \   /  __  \  |  |/  / ")
+        print("`---|  |----` \   \/    \/   /  |  |__   |  |__   `---|  |----`|  |_)  | |  |  |  | |  |  |  | |  '  /  ")
+        print("    |  |       \            /   |   __|  |   __|      |  |     |   _  <  |  |  |  | |  |  |  | |    <   ")
+        print("    |  |        \    /\    /    |  |____ |  |____     |  |     |  |_)  | |  `--'  | |  `--'  | |  .  \  ")
+        print("    |__|         \__/  \__/     |_______||_______|    |__|     |______/   \______/   \______/  |__|\__\ ")
+        print("")
 
         cluster = MongoClient(
             "Your Connection String Here")
@@ -33,6 +41,14 @@ def socialMedia(username):
         person = str(username)
 
         while True:
+            print()
+            print(".___________..______  ")
+            print("|           ||   _  \  ")
+            print("`---|  |----`|  |_)  | ")
+            print("    |  |     |   _  <  ")
+            print("    |  |     |  |_)  | ")
+            print("    |__|     |______/  ")
+            print()
             print("Please Choose an option 1-6")
             print("1. New Message")
             print("2. Refresh Messages")
