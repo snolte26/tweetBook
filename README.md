@@ -49,9 +49,10 @@ time moves forward.
 ````````````````````````````
 ````````````````````````````
 Update 06/3/2021:
-Added color, certification
+Added color, certification, site for discord bot
 
 Added some more color to the command line, making the ascii art blue instead of white on black 
 background. added certification to "cluster = MongoClient()". After some failures to connect to 
-a mongoDB database, extra certification was added to ensure connectivity
+a mongoDB database, extra certification was added to ensure connectivity. Also added information 
+site for the tweetBook discord companion bot.
 ````````````````````````````
