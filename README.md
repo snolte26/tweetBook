@@ -4,36 +4,22 @@ A basic social media platform with some functionalities
 This small social media platform was based on this video:
      https://www.youtube.com/watch?v=8TpRqjVlQSo
 
-Creating this requires a MongoDB account. I sugesst watching the 
-video above to do so and get a better understanding of whats happening.
-Line 13, you will need to put your own connection string
+Creating this requires a MongoDB account. I sugesst watching the video above to do so and get a better understanding of whats happening. Line 13, you will need to put your own connection string
 
-On line 5 of the autoMod, you will need to input your own connection string.
-The autoMod goes through the database and deletes posts that are 
-older than 1 month, though this can be modified to fit your needs.
+On line 5 of the autoMod, you will need to input your own connection string. The autoMod goes through the database and deletes posts that are older than 1 month, though this can be modified to fit your needs.
 
 Both the AutoMod and TweetBokk are required for this to work properly.
 
-To distribute to those without python, you must convert both the tweetBook app 
-and the autoMod into .exe formats. This can be done by installing pyinstaller,
-going into the command prompt navigating to the directory, and typing 
-`pyinstaller --onefile pythonScriptName.py`
+To distribute to those without python, you must convert both the tweetBook app and the autoMod into .exe formats. This can be done by installing pyinstaller, going into the command prompt navigating to the directory, and typing `pyinstaller --onefile pythonScriptName.py`
 
-Users will need to set up a username and password to access the tweetBook when
-first running the application. Login information is saved locally to the users
-computer in the same directory as the application. Changing username and password 
-involves opening the document with the username and password and manually 
-changing it there.
+Users will need to set up a username and password to access the tweetBook when first running the application. Login information is saved locally to the users computer in the same directory as the application. Changing username and password involves opening the document with the username and password and manually changing it there.
 
-Users are able to create a new post, refresh for new/incoming posts, view just their
-own posts, see the posts of a certain user, delete their own posts, or quit the app.
+Users are able to create a new post, refresh for new/incoming posts, view just their own posts, see the posts of a certain user, delete their own posts, or quit the app.
 
 ## tweetBook GUI!
-tweetBook now has a gui application! This basic gui app allows users to make and refresh 
-posts quickly and easily, without manually typing what they want to do. Buttons help
-to streamline the whole process for users to make a post and refresh for new posts.
+tweetBook now has a gui application! This basic gui app allows users to make and refresh posts quickly and easily, without manually typing what they want to do. Buttons help to streamline the whole process for users to make a post and refresh for new posts. This gui app even comes with the AutoMod builtin, making auto moderation easier with just one file. Much like the original command line tweetBook, AutoMod, and discord bot, you will need to go in and set your own connection string.
 
-## Updates
+### Updates
 
 ````````````````````````````
 Update 03/09/2021:
