@@ -28,6 +28,11 @@ changing it there.
 Users are able to create a new post, refresh for new/incoming posts, view just their
 own posts, see the posts of a certain user, delete their own posts, or quit the app.
 
+## tweetBook GUI!
+tweetBook now has a gui application! This basic gui app allows users to make and refresh 
+posts quickly and easily, without manually typing what they want to do. Buttons help
+to streamline the whole process for users to make a post and refresh for new posts.
+
 ````````````````````````````
 Update 03/09/2021:
 Added search users, view your posts, and delete your posts
@@ -56,3 +61,4 @@ background. added certification to "cluster = MongoClient()". After some failure
 a mongoDB database, extra certification was added to ensure connectivity. Also added information 
 site for the tweetBook discord companion bot.
 ````````````````````````````
+
