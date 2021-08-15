@@ -33,6 +33,8 @@ tweetBook now has a gui application! This basic gui app allows users to make and
 posts quickly and easily, without manually typing what they want to do. Buttons help
 to streamline the whole process for users to make a post and refresh for new posts.
 
+## Updates
+
 ````````````````````````````
 Update 03/09/2021:
 Added search users, view your posts, and delete your posts
