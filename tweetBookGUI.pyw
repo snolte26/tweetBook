@@ -15,7 +15,7 @@ root.title('tweetBook')
 
 messageDisplay = ttk.Label(root, text="", font=("Helvetica", 14))
 
-text = tk.Text(root, wrap="none")
+text = tk.Text(root, wrap="none", bg='lightblue')
 vsb = tk.Scrollbar(orient="vertical", command=text.yview)
 text.configure(yscrollcommand=vsb.set)
 vsb.pack(side="right", fill="y")
@@ -35,7 +35,9 @@ def messages():
                 b = tk.Label(
                     root,
                     text=str(f"Today - {messages['time']}"),
-                    font=("Helvetica", 14)
+                    font=("Helvetica", 14),
+                    fg='red',
+                    bg='lightgray'
                 )
                 text.window_create("end", window=b)
                 text.insert("end", "\n")
@@ -45,7 +47,9 @@ def messages():
                 b = tk.Label(
                     root,
                     text=str(f"{messages['date']} - {messages['time']}"),
-                    font=("Helvetica", 14)
+                    font=("Helvetica", 14),
+                    fg='red',
+                    bg='lightgray'
                 )
                 text.window_create("end", window=b)
                 text.insert("end", "\n")
@@ -54,7 +58,9 @@ def messages():
             b = tk.Label(
                 root,
                 text=str(f"Post ID: {messages['count']}"),
-                font=("Helvetica", 12)
+                font=("Helvetica", 12),
+                fg='purple',
+                bg='lightgray'
             )
             text.window_create("end", window=b)
             text.insert("end", "\n")
@@ -63,7 +69,9 @@ def messages():
             b = tk.Label(
                 root,
                 text=str("From: " + messages['id']),
-                font=("Helvetica", 12)
+                font=("Helvetica", 12),
+                fg='maroon',
+                bg='lightgray'
             )
             text.window_create("end", window=b)
             text.insert("end", "\n")
@@ -73,7 +81,9 @@ def messages():
                 root,
                 text=str("Message: " + messages['message']),
                 font=("Helvetica", 12),
-                wraplength=300
+                wraplength=300,
+                fg='green',
+                bg='lightgray'
             )
             text.window_create("end", window=b)
             text.insert("end", "\n")
@@ -82,7 +92,8 @@ def messages():
             b = tk.Label(
                 root,
                 text=str("----------------------"),
-                font=("Helvetica", 12)
+                font=("Helvetica", 12),
+                bg='lightgray'
             )
             text.window_create("end", window=b)
             text.insert("end", "\n")
@@ -205,4 +216,5 @@ msgSent.place(
 autoMod()
 messages()
 
+root.config(bg='lightblue')
 root.mainloop()
