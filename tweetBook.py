@@ -4,14 +4,15 @@ from datetime import datetime
 from termcolor import colored
 import time
 import os
-
+from dotenv import load_dotenv
+load_dotenv()
 
 def socialMedia(username):
     quit = False
 
     while True:
         os.system('cls')
-        
+
         print(colored(".___________.____    __    ____  _______  _______ .___________..______     ______     ______    __  ___ ", 'blue'))
         print(colored("|           |\   \  /  \  /   / |   ____||   ____||           ||   _  \   /  __  \   /  __  \  |  |/  / ", 'blue'))
         print(colored("`---|  |----` \   \/    \/   /  |  |__   |  |__   `---|  |----`|  |_)  | |  |  |  | |  |  |  | |  '  /  ", 'blue'))
@@ -20,9 +21,8 @@ def socialMedia(username):
         print(colored("    |__|         \__/  \__/     |_______||_______|    |__|     |______/   \______/   \______/  |__|\__\ ", 'blue'))
         print("")
 
-        cluster = MongoClient(
-            "Your Connection String Here", tlsCAFile=certifi.where())
-        db = cluster["socialMedia"]["messages"]
+        ConnectString = os.getenv('CONNECTION_STRING')
+        cluster = MongoClient(ConnectString, tlsCAFile=certifi.where())
         all = db.find({})
         date = datetime.now().strftime("%x")
 
