@@ -2,9 +2,11 @@ import certifi
 from pymongo import MongoClient
 from datetime import datetime, timedelta
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
-cluster = MongoClient(
-            "Your  Connection Link Here", tlsCAFile=certifi.where())
+ConnectString = os.getenv('CONNECTION_STRING')
+cluster = MongoClient(ConnectString, tlsCAFile=certifi.where())
 db = cluster["socialMedia"]["messages"]
 all = db.find({})
 today = datetime.now()
