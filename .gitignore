@@ -1,0 +1,10 @@
+.env
+
+.venv
+venv/
+
+dist/
+build/
+
+tweetBook.spec
+userPass.txt
