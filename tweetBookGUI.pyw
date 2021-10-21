@@ -7,6 +7,8 @@ from tkinter import ttk
 import certifi
 import pymongo
 from pymongo import MongoClient
+from dotenv import load_dotenv
+load_dotenv()
 
 root = tk.Tk()
 root.geometry('500x500')
@@ -23,8 +25,8 @@ text.pack(fill="both", expand=True)
 
 
 def messages():
-    cluster = MongoClient(
-        "Your Connection String Here", tlsCAFile=certifi.where())
+    ConnectString = os.getenv('CONNECTION_STRING')
+    cluster = MongoClient(ConnectString, tlsCAFile=certifi.where())
     db = cluster["socialMedia"]["messages"]
     all = db.find({}).sort([('date', pymongo.DESCENDING), ('time', pymongo.DESCENDING)])
     date = datetime.now().strftime("%x")
