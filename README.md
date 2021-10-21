@@ -4,7 +4,7 @@ A basic social media platform with some functionalities
 This small social media platform was based on this video:
      https://www.youtube.com/watch?v=8TpRqjVlQSo
 
-Creating this requires a MongoDB account. I sugesst watching the video above to do so and get a better understanding of whats happening. Line 13, you will need to put your own connection string
+Creating this requires a MongoDB account. I sugesst watching the video above to do so and get a better understanding of whats happening. You will need a .env file in the same directory as the script(s). The .env file will hold your connection string in a variable called `CONNECTION_STRING`
 
 On line 5 of the autoMod, you will need to input your own connection string. The autoMod goes through the database and deletes posts that are older than 1 month, though this can be modified to fit your needs.
 
@@ -49,4 +49,11 @@ background. added certification to "cluster = MongoClient()". After some failure
 a mongoDB database, extra certification was added to ensure connectivity. Also added information 
 site for the tweetBook discord companion bot.
 ````````````````````````````
+````````````````````````````
+Update 10/21/2021:
+Added the use of .env files for the connection string, added .gitignore
 
+Instead of hard coding the connection string to your mongodb cluster into the script, you now place
+that connection string in a .env file. This was done to improve the privacy of connection strings to 
+your mongo cluster
+````````````````````````````
