@@ -3,7 +3,7 @@ from pymongo import MongoClient
 from datetime import datetime
 from termcolor import colored
 import time
-import os
+import os, sys
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -11,7 +11,7 @@ def socialMedia(username):
     quit = False
 
     while True:
-        os.system('cls')
+        os.system("cls" if sys.platform == "win32" else "clear")
 
         print(colored(".___________.____    __    ____  _______  _______ .___________..______     ______     ______    __  ___ ", 'blue'))
         print(colored("|           |\   \  /  \  /   / |   ____||   ____||           ||   _  \   /  __  \   /  __  \  |  |/  / ", 'blue'))
@@ -23,6 +23,11 @@ def socialMedia(username):
 
         ConnectString = os.getenv('CONNECTION_STRING')
         cluster = MongoClient(ConnectString, tlsCAFile=certifi.where())
+
+        """For those with a local database, use the following instead:"""
+        # cluster = MongoClient('localhost', 27017)
+        
+        db = cluster["socialMedia"]["messages"]
         all = db.find({})
         date = datetime.now().strftime("%x")
 
@@ -189,7 +194,8 @@ def main():
         username = login(userPass)
 
         directory = os.path.dirname(os.path.abspath(__file__))
-        command = directory + "\\tweetBook_AutoMod.py"
+        # command = directory + "\\tweetBook_AutoMod.py"
+        command = os.path.join(directory, 'tweetBook_AutoMod.py')
         os.system(command)
 
         socialMedia(username)

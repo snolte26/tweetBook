@@ -7,6 +7,10 @@ load_dotenv()
 
 ConnectString = os.getenv('CONNECTION_STRING')
 cluster = MongoClient(ConnectString, tlsCAFile=certifi.where())
+
+"""For those with a local database, use the following instead:"""
+# cluster = MongoClient('localhost', 27017)
+
 db = cluster["socialMedia"]["messages"]
 all = db.find({})
 today = datetime.now()
