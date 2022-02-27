@@ -1,4 +1,4 @@
-import os
+import os, sys, subprocess
 import tkinter as tk
 from datetime import datetime, timedelta
 from tkinter import *
@@ -26,7 +26,12 @@ text.pack(fill="both", expand=True)
 
 def messages():
     ConnectString = os.getenv('CONNECTION_STRING')
+
     cluster = MongoClient(ConnectString, tlsCAFile=certifi.where())
+
+    """For those with a local database, use the following instead:"""
+    # cluster = MongoClient('localhost', 27017)
+
     db = cluster["socialMedia"]["messages"]
     all = db.find({}).sort([('date', pymongo.DESCENDING), ('time', pymongo.DESCENDING)])
     date = datetime.now().strftime("%x")
@@ -112,6 +117,10 @@ def new_message():
 
     cluster = MongoClient(
         "Your Connection String Here", tlsCAFile=certifi.where())
+
+    """For those with a local database, use the following instead:"""
+    # cluster = MongoClient('localhost', 27017)
+    
     db = cluster["socialMedia"]["messages"]
     all = db.find({})
     date = datetime.now().strftime("%x")
@@ -127,15 +136,20 @@ def new_message():
 
 
 def refresh():
-
     root.destroy()
-    os.startfile("tweetBookGUI.pyw")
-    pass
+    if sys.platform == "win32":
+        os.startfile("tweetBookGUI.pyw")
+    else:
+        subprocess.call(["python", "tweetBookGUI.pyw"])
 
 
 def autoMod():
     cluster = MongoClient(
         "Your Connection String Here", tlsCAFile=certifi.where())
+
+    """For those with a local database, use the following:"""
+    # cluster = MongoClient('localhost', 27017)
+    
     db = cluster["socialMedia"]["messages"]
     all = db.find({})
     today = datetime.now()
